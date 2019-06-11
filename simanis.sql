@@ -1,245 +1,163 @@
--- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: May 24, 2019 at 03:35 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.2.16
+/*
+ Navicat Premium Data Transfer
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+ Source Server         : localhost_3306
+ Source Server Type    : MySQL
+ Source Server Version : 100138
+ Source Host           : localhost:3306
+ Source Schema         : simanis
 
+ Target Server Type    : MySQL
+ Target Server Version : 100138
+ File Encoding         : 65001
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+ Date: 11/06/2019 20:37:43
+*/
 
---
--- Database: `simanis`
---
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `data_sekolah`
---
-
-CREATE TABLE `data_sekolah` (
-  `id_sekolah` int(3) NOT NULL,
+-- ----------------------------
+-- Table structure for data_sekolah
+-- ----------------------------
+DROP TABLE IF EXISTS `data_sekolah`;
+CREATE TABLE `data_sekolah`  (
+  `id_sekolah` int(3) NOT NULL AUTO_INCREMENT,
   `npsn` int(10) NOT NULL,
-  `nama_sekolah` varchar(20) NOT NULL,
-  `status` varchar(6) NOT NULL,
-  `alamat` text NOT NULL,
-  `kelurahan` varchar(15) NOT NULL,
-  `kecamatan` varchar(15) NOT NULL,
-  `kota` varchar(15) NOT NULL,
-  `provinsi` varchar(15) NOT NULL,
+  `nama_sekolah` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `status` varchar(6) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `alamat_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `kelurahan` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `kecamatan` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `kota` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `provinsi` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `no_telp` int(13) NOT NULL,
-  `email_sekolah` varchar(20) NOT NULL,
-  `nama_kepsek` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `email_sekolah` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `nama_kepsek` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id_sekolah`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
---
--- Dumping data for table `data_sekolah`
---
+-- ----------------------------
+-- Records of data_sekolah
+-- ----------------------------
+INSERT INTO `data_sekolah` VALUES (2, 23123421, 'SDN 04', 'Negri', 'Gg.Melati', 'Cakung Barat', 'Cakung', 'Jakarta Timur', 'DKI Jakarta', 218576489, 'sdn04cakbar@gmail.co', 'Susanti S.Pd, MM');
 
-INSERT INTO `data_sekolah` (`id_sekolah`, `npsn`, `nama_sekolah`, `status`, `alamat`, `kelurahan`, `kecamatan`, `kota`, `provinsi`, `no_telp`, `email_sekolah`, `nama_kepsek`) VALUES
-(2, 23123421, 'dfsdfsd', 'sdfdsf', 'sdfs', 'dsfds', 'sfdf', 'sfdfs', 'sfd', 1231312, 'dfsdfds', 'asdads'),
-(3, 23123421, 'dfsdfsd', 'sdfdsf', 'sdfs', 'dsfds', 'sfdf', 'sfdfs', 'sfd', 1231312, 'dfsdfds', 'asdads'),
-(4, 23123421, 'dfsdfsd', 'sdfdsf', 'sdfs', 'dsfds', 'sfdf', 'sfdfs', 'sfd', 1231312, 'dfsdfds', 'asdads');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `data_siswa`
---
-
-CREATE TABLE `data_siswa` (
-  `id_siswa` int(3) NOT NULL,
+-- ----------------------------
+-- Table structure for data_siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `data_siswa`;
+CREATE TABLE `data_siswa`  (
+  `id_siswa` int(3) NOT NULL AUTO_INCREMENT,
+  `id_sekolah` int(3) NOT NULL,
   `no_induk` int(4) NOT NULL,
   `nisn` int(10) NOT NULL,
-  `nama_siswa` varchar(10) NOT NULL,
-  `jenis_kelamin` enum('Laki-laki','Perempuan') NOT NULL,
-  `tempat_lahir` varchar(20) NOT NULL,
+  `nama_siswa` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `jenis_kelamin` int(11) NOT NULL COMMENT '1 : Laki-laki , 2 : Perempuan',
+  `tempat_lahir` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
-  `agama` varchar(10) NOT NULL,
-  `nama_ibu` varchar(20) NOT NULL,
-  `alamat` text NOT NULL,
-  `status` varchar(10) NOT NULL,
-  `rombel` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `agama` int(11) NOT NULL,
+  `nama_ibu` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `alamat_siswa` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `status` int(11) NOT NULL COMMENT '1 : Siswa Baru, 2 : Naik Kelas, 3 : Mengulang, 4 : Lulus',
+  `id_rombel` int(5) NOT NULL,
+  `foto` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_siswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
---
--- Dumping data for table `data_siswa`
---
+-- ----------------------------
+-- Records of data_siswa
+-- ----------------------------
+INSERT INTO `data_siswa` VALUES (4, 2, 4334, 121233, 'Danu Dwi Pamungkas', 1, 'Jakarta', '1900-10-28', 4, 'Tinibel', 'Cakung', 2, 4, 'http://localhost/simanis/assets/images/abc.jpg');
+INSERT INTO `data_siswa` VALUES (6, 2, 67868776, 1221, 'Eko Widodo', 1, 'Jakarta', '2019-03-22', 6, 'Nani', 'Jakarta', 1, 6, '');
+INSERT INTO `data_siswa` VALUES (7, 2, 1213, 1323, 'Velinda Kusuma', 2, 'Purbalingga', '1900-11-07', 1, 'Sumariyati', 'Cakung ', 2, 1, 'http://localhost/simanis/Uploads/foto_siswa/2019_06_101213.jpg');
+INSERT INTO `data_siswa` VALUES (9, 2, 1232323, 12121212, 'Febri Adi ', 1, 'Purworejo', '2000-02-12', 5, 'Sri Lestari', 'Gang Bodong', 2, 6, '');
+INSERT INTO `data_siswa` VALUES (10, 0, 343355, 13232321, 'Ilham Yudatama', 1, 'Yogyakarta', '1997-12-22', 3, 'Suimah', 'Bekasi', 2, 0, 'http://localhost/simanis/Uploads/foto_siswa/2019_06_10343355.jpg');
+INSERT INTO `data_siswa` VALUES (11, 0, 4354534, 2147483647, 'Ferlita ', 2, 'Jakarta', '2009-04-10', 6, 'Sum', 'Gg.Ppd', 3, 0, '');
+INSERT INTO `data_siswa` VALUES (12, 0, 345345, 12432132, 'Cut Zuraida', 2, 'Aceh', '2007-12-08', 2, 'Firda', 'Gg.Penjahit', 2, 0, '');
+INSERT INTO `data_siswa` VALUES (13, 0, 234242342, 12312312, 'Nanang', 1, 'Purworejo', '1994-08-23', 1, 'Wati', 'Gg.Tapos', 2, 0, '');
+INSERT INTO `data_siswa` VALUES (14, 0, 34324234, 324314121, 'Yanti', 2, 'Jakarta', '1996-08-27', 1, 'Sukarti', 'Kp.Pedaengan', 2, 0, '');
+INSERT INTO `data_siswa` VALUES (15, 0, 3423423, 345435435, 'snbdsjdsj', 2, 'sjhdjas', '2019-06-12', 5, 'asmbdbasdbja', 'sahhdsadhasd', 3, 0, 'http://localhost/simanis/Uploads/foto_siswa/2019_06_103423423.jpg');
 
-INSERT INTO `data_siswa` (`id_siswa`, `no_induk`, `nisn`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `nama_ibu`, `alamat`, `status`, `rombel`) VALUES
-(4, 4334, 121233, 'Danu Dwi', 'Laki-laki', 'Jakarta', '2004-12-23', 'Kristen', 'Tini', 'Cakung Barat Jakarta', 'Mengulang', 4),
-(6, 67868776, 1221, 'Eko Widodo', 'Laki-laki', 'Jakarta', '2019-03-22', 'Islam', 'Nani', 'Jakarta', 'Lulus', 6),
-(7, 1213, 1323, 'Velinda', 'Perempuan', 'Purbalingga', '2001-06-21', 'Budha', 'Sumariyati', 'Cakung Barat Jakata', 'Siswa Baru', 1);
+-- ----------------------------
+-- Table structure for login
+-- ----------------------------
+DROP TABLE IF EXISTS `login`;
+CREATE TABLE `login`  (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `username` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `password` varchar(8) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `lvl` int(20) NOT NULL COMMENT 'lvl 1 = kepala dinas, lvl 2 = Seksi Dikdas & PKLK, lvl 3 = Satlak, lvl 4 = sekolah',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of login
+-- ----------------------------
+INSERT INTO `login` VALUES (1, 'tita', '12345', 1);
+INSERT INTO `login` VALUES (2, 'danu', '3456', 2);
+INSERT INTO `login` VALUES (3, 'Barak', '234673', 3);
+INSERT INTO `login` VALUES (4, 'Lulu', '576687', 4);
+INSERT INTO `login` VALUES (5, 'Uswatun', '345', 4);
+INSERT INTO `login` VALUES (6, 'Jali', '56456', 4);
 
---
--- Table structure for table `login`
---
+-- ----------------------------
+-- Table structure for manajemen_datsis
+-- ----------------------------
+DROP TABLE IF EXISTS `manajemen_datsis`;
+CREATE TABLE `manajemen_datsis`  (
+  `id_mdatsis` int(11) NOT NULL AUTO_INCREMENT,
+  `no_induk` int(11) NULL DEFAULT NULL,
+  `nisn` int(11) NULL DEFAULT NULL,
+  `nama_siswa_b` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `jenis_kelamin_b` int(11) NULL DEFAULT NULL COMMENT '1. Laki-Laki, 2. Perempuan',
+  `tempat_lahir_b` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `tanggal_lahir_b` date NULL DEFAULT NULL,
+  `agama_b` int(11) NULL DEFAULT NULL COMMENT '1. ISLAM\r\n2. KATOLIK\r\n3. PROTESTAN\r\n4. HINDU\r\n5. BUDHA\r\n6. KHONG HU CHU\r\n7. LAINNYA',
+  `nama_ibu_b` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `alamat_b` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `dokumen_pendukung` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tgl_pengajuan` date NULL DEFAULT NULL,
+  `syscreateuser` int(11) NULL DEFAULT NULL,
+  `syscreatedate` datetime(0) NULL DEFAULT NULL,
+  `sysupdateuser` int(11) NULL DEFAULT NULL,
+  `sysupdatedate` datetime(0) NULL DEFAULT NULL,
+  `sysdeleteuser` int(11) NULL DEFAULT NULL,
+  `sysdeletedate` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_mdatsis`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
-CREATE TABLE `login` (
-  `id` int(3) NOT NULL,
-  `username` varchar(10) NOT NULL,
-  `password` varchar(8) NOT NULL,
-  `lvl` int(20) NOT NULL COMMENT 'lvl 1 = kepala dinas, lvl 2 = Seksi Dikdas & PKLK, lvl 3 = Satlak, lvl 4 = sekolah'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- ----------------------------
+-- Records of manajemen_datsis
+-- ----------------------------
+INSERT INTO `manajemen_datsis` VALUES (1, 23456, 78912, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://localhost/Simanis/Uploads/2019_05_2323456.jpeg ', NULL, 1, '2019-05-23 07:15:42', NULL, NULL, NULL, NULL);
+INSERT INTO `manajemen_datsis` VALUES (2, 435363, 42342, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'http://localhost/simanis/Uploads/2019_05_26435363.jpg ', NULL, 1, '2019-05-26 15:04:01', NULL, NULL, NULL, NULL);
+INSERT INTO `manajemen_datsis` VALUES (3, 98399, 193380, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'http://localhost/simanis/Uploads/2019_05_2898399.jpg ', NULL, 1, '2019-05-28 18:00:42', NULL, NULL, NULL, NULL);
 
---
--- Dumping data for table `login`
---
+-- ----------------------------
+-- Table structure for rombel
+-- ----------------------------
+DROP TABLE IF EXISTS `rombel`;
+CREATE TABLE `rombel`  (
+  `id_rombel` int(3) NOT NULL AUTO_INCREMENT,
+  `nama_rombel` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `kelas` varchar(3) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id_rombel`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
-INSERT INTO `login` (`id`, `username`, `password`, `lvl`) VALUES
-(1, 'tita', '12345', 1),
-(2, 'danu', '3456', 2),
-(3, 'Barak', '234673', 3),
-(4, 'Lulu', '576687', 4),
-(5, 'Uswatun', '345', 4),
-(6, 'Jali', '56456', 4);
+-- ----------------------------
+-- Records of rombel
+-- ----------------------------
+INSERT INTO `rombel` VALUES (1, 'R01A', '1A');
+INSERT INTO `rombel` VALUES (2, 'R01B', '1B');
+INSERT INTO `rombel` VALUES (3, 'R02A', '2A');
+INSERT INTO `rombel` VALUES (4, 'R02B', '2B');
+INSERT INTO `rombel` VALUES (5, 'R03A', '3A');
+INSERT INTO `rombel` VALUES (6, 'R03B', '3B');
+INSERT INTO `rombel` VALUES (7, 'R04A', '4A');
+INSERT INTO `rombel` VALUES (8, 'R04B', '4B');
+INSERT INTO `rombel` VALUES (9, 'R05A', '5A');
+INSERT INTO `rombel` VALUES (10, 'R05B', '5B');
+INSERT INTO `rombel` VALUES (11, 'R06A', '6A');
+INSERT INTO `rombel` VALUES (12, 'R06B', '6B');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `manajemen_datsis`
---
-
-CREATE TABLE `manajemen_datsis` (
-  `id_mdatsis` int(11) NOT NULL,
-  `no_induk` int(11) DEFAULT NULL,
-  `nisn` int(11) DEFAULT NULL,
-  `nama_siswa` varchar(50) DEFAULT NULL,
-  `nama_siswa_b` varchar(50) DEFAULT NULL,
-  `jenis_kelamin` int(11) DEFAULT NULL COMMENT '1. Laki-Laki, 2. Perempuan',
-  `jenis_kelamin_b` int(11) DEFAULT NULL COMMENT '1. Laki-Laki, 2. Perempuan',
-  `tempat_lahir` varchar(50) DEFAULT NULL,
-  `tempat_lahir_b` varchar(50) DEFAULT NULL,
-  `tanggal_lahir` date DEFAULT NULL,
-  `tanggal_lahir_b` date DEFAULT NULL,
-  `agama` int(11) DEFAULT NULL COMMENT '1. ISLAM\r\n2. KATOLIK\r\n3. PROTESTAN\r\n4. HINDU\r\n5. BUDHA\r\n6. KHONG HU CHU\r\n7. LAINNYA',
-  `agama_b` int(11) DEFAULT NULL COMMENT '1. ISLAM\r\n2. KATOLIK\r\n3. PROTESTAN\r\n4. HINDU\r\n5. BUDHA\r\n6. KHONG HU CHU\r\n7. LAINNYA',
-  `nama_ibu` varchar(50) DEFAULT NULL,
-  `nama_ibu_b` varchar(50) DEFAULT NULL,
-  `alamat` varchar(50) DEFAULT NULL,
-  `alamat_b` varchar(50) DEFAULT NULL,
-  `dokumen_pendukung` text,
-  `syscreateuser` int(11) DEFAULT NULL,
-  `syscreatedate` datetime DEFAULT NULL,
-  `sysupdateuser` int(11) DEFAULT NULL,
-  `sysupdatedate` datetime DEFAULT NULL,
-  `sysdeleteuser` int(11) DEFAULT NULL,
-  `sysdeletedate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `manajemen_datsis`
---
-
-INSERT INTO `manajemen_datsis` (`id_mdatsis`, `no_induk`, `nisn`, `nama_siswa`, `nama_siswa_b`, `jenis_kelamin`, `jenis_kelamin_b`, `tempat_lahir`, `tempat_lahir_b`, `tanggal_lahir`, `tanggal_lahir_b`, `agama`, `agama_b`, `nama_ibu`, `nama_ibu_b`, `alamat`, `alamat_b`, `dokumen_pendukung`, `syscreateuser`, `syscreatedate`, `sysupdateuser`, `sysupdatedate`, `sysdeleteuser`, `sysdeletedate`) VALUES
-(1, 23456, 78912, 'PENDI BABI', NULL, 2, NULL, 'COMBERAN', NULL, '2000-01-01', NULL, 7, NULL, 'MAMAPENDI', NULL, 'Generates an insert string based on the data you s', NULL, 'https://localhost/Simanis/Uploads/2019_05_2323456.jpeg ', 1, '2019-05-23 07:15:42', NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rombel`
---
-
-CREATE TABLE `rombel` (
-  `id_rombel` int(3) NOT NULL,
-  `nama_rombel` varchar(5) NOT NULL,
-  `kelas` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `rombel`
---
-
-INSERT INTO `rombel` (`id_rombel`, `nama_rombel`, `kelas`) VALUES
-(1, 'R01', 1),
-(2, 'R02', 2),
-(3, 'R03', 3),
-(4, 'R04', 4),
-(5, 'R05', 5),
-(6, 'R06', 6);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `data_sekolah`
---
-ALTER TABLE `data_sekolah`
-  ADD PRIMARY KEY (`id_sekolah`);
-
---
--- Indexes for table `data_siswa`
---
-ALTER TABLE `data_siswa`
-  ADD PRIMARY KEY (`id_siswa`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `manajemen_datsis`
---
-ALTER TABLE `manajemen_datsis`
-  ADD PRIMARY KEY (`id_mdatsis`) USING BTREE;
-
---
--- Indexes for table `rombel`
---
-ALTER TABLE `rombel`
-  ADD PRIMARY KEY (`id_rombel`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `data_sekolah`
---
-ALTER TABLE `data_sekolah`
-  MODIFY `id_sekolah` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `data_siswa`
---
-ALTER TABLE `data_siswa`
-  MODIFY `id_siswa` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `manajemen_datsis`
---
-ALTER TABLE `manajemen_datsis`
-  MODIFY `id_mdatsis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `rombel`
---
-ALTER TABLE `rombel`
-  MODIFY `id_rombel` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+SET FOREIGN_KEY_CHECKS = 1;
