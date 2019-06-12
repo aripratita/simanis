@@ -43,7 +43,7 @@ class Data_Sekolah extends MY_Controller
 		$nama_kepsek = $this->input->post('nama_kepsek')
 		;
 
-	$data = array(
+	$data = [
 		'npsn' => $npsn,
 		'nama_sekolah' => $nama_sekolah, 
 		'status' => $status,
@@ -56,7 +56,7 @@ class Data_Sekolah extends MY_Controller
 		'email_sekolah' => $email_sekolah, 
 		'nama_kepsek' => $nama_kepsek
 	
-	);
+	];
 
 	$this->m_data_sekolah->input_data($data,'data_sekolah');
 	redirect('Data_sekolah/index');
@@ -64,14 +64,14 @@ class Data_Sekolah extends MY_Controller
 	}
 
 	function hapus_data($id){
-		$where = array('id_sekolah' => $id);
+		$where = ['id_sekolah' => $id];
 		$this->M_datsek->hapus_data($where,'data_sekolah');
 		redirect('Data_sekolah/index');
 
 	}
 
 	function edit($id){
-		$where = array('id' => $id);
+		$where = ['id' => $id];
 		$data['user'] = $this->m_data->edit_data($where,'user')->result();
 		$this->load->view('v_edit',$data);
 		

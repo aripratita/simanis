@@ -15,20 +15,9 @@ class manajemen_datsis extends MY_Controller {
             'value' => $this->datsis->index()
         ];
         $data['manajemen_datsis'] = $this->datsis->index();
-		$data['content'] = $this->load->view('V_manajemen_datsis',$data, True);
-		$data['sidebar'] =$this->load->view('sidebar_os','', TRUE);
-		$this->load->view('template',$data);
+        $data['content'] = $this->load->view('V_manajemen_datsis', $data, true);
+        $this->load->view('template', $data);
     }
-
-    // function Tambah() {
-    //     $data = array(
-    //         'title' => 'Tambah Data Siswa'
-    //     );
-    //     $data['content'] = $this->load->view('V_Tambah_datsis',$data, True);
-	// 	$data['sidebar'] =$this->load->view('sidebar_os','', TRUE);
-	// 	$this->load->view('template',$data);
-  
-    // }
 
     function Baca($id) {
         $data = [
@@ -36,10 +25,8 @@ class manajemen_datsis extends MY_Controller {
             'value' => $this->datsis->Baca($id),
             'addclass' => ''
         ];
-        $data['content'] = $this->load->view('V_Detail_datsis',$data, True);
-		$data['sidebar'] =$this->load->view('sidebar_os','', TRUE);
-		$this->load->view('template',$data);
- 
+        $data['content'] = $this->load->view('V_Detail_datsis', $data, true);
+        $this->load->view('template', $data);
     }
 
     function Ubah($id) {
@@ -47,10 +34,8 @@ class manajemen_datsis extends MY_Controller {
             'title' => 'Ubah Data Siswa',
             'value' => $this->datsis->Ubah($id)
         ];
-        $data['content'] = $this->load->view('V_Ubah_datsis',$data, True);
-		$data['sidebar'] =$this->load->view('sidebar_os','', TRUE);
-		$this->load->view('template',$data);
-
+        $data['content'] = $this->load->view('V_Ubah_datsis', $data, true);
+        $this->load->view('template', $data);
     }
 
     function Simpan() {
@@ -146,7 +131,3 @@ class manajemen_datsis extends MY_Controller {
     }
 
 }
-
-
-
-

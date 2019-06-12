@@ -40,10 +40,10 @@ class Data_Siswa extends MY_Controller
 	$this->upload->initialize($config);
 	if ( ! $this->upload->do_upload('foto'))
 	{
-			$error = array('error' => $this->upload->display_errors());
+			$error = ['error' => $this->upload->display_errors()];
 	}
 	$upload = $this->upload->data();
-	$data = array(
+	$data = [
 		'no_induk' => $this->input->post('no_induk'),
 		'nisn' => $this->input->post('nisn'), 
 		'nama_siswa' => $this->input->post('nama_siswa'),
@@ -55,24 +55,24 @@ class Data_Siswa extends MY_Controller
 		'alamat_siswa' =>  $this->input->post('alamat_siswa'),
 		'status' => $this->input->post('status'),
 		'foto' => base_url('Uploads/foto_siswa/' . $upload['file_name'])
-	);
+	];
 	$this->M_datsis->input_data($data,'data_siswa');
 	redirect('Data_Siswa/index');
 
 	}
 
 	function hapus($id_siswa){
-		$where = array('id_siswa' => $id_siswa);
+		$where = ['id_siswa' => $id_siswa];
 		$this->M_datsis->hapus_data($where,'data_siswa');
 		redirect('Data_Siswa/index');
 
 	}
 
 	function edit($id){
-		$data = array(
+		$data = [
 			'title' => 'Ubah Data Siswa',
 			'data_siswa' => $this->M_datsis->edit_data($id)
-		);
+		];
 		$data['content'] = $this->load->view('v_edit',$data, True);
 		$data['sidebar'] =$this->load->view('sidebar_os','', TRUE);
 		$this->load->view('template',$data);
@@ -92,12 +92,12 @@ class Data_Siswa extends MY_Controller
 		$this->upload->initialize($config);
 		if ( ! $this->upload->do_upload('foto'))
 		{
-				$error = array('error' => $this->upload->display_errors());
+				$error = ['error' => $this->upload->display_errors()];
 		}
 		else
 		{
 			$upload = $this->upload->data();
-			$data = array(
+			$data = [
 				'no_induk' => $this->input->post('no_induk'),
 				'nisn' => $this->input->post('nisn'),
 				'nama_siswa' => $this->input->post('nama_siswa'),
@@ -109,7 +109,7 @@ class Data_Siswa extends MY_Controller
 				'alamat_siswa' => $this->input->post('alamat_siswa'),
 				'status' => $this->input->post('status'),
 				'foto' => base_url('Uploads/foto_siswa/' . $upload['file_name'])
-			);
+			];
 			$this->M_datsis->update_data($data);
 			redirect('Data_Siswa/index');
 		}
@@ -129,7 +129,7 @@ class Data_Siswa extends MY_Controller
             echo '<script>alert("Terjadi kesalahan, ulangi atau hubungi administrator !");window.location.href = "' . base_url('Dat_Siswa/index') . '";</script>';
         } else {
             $upload = $this->upload->data();
-            $data = array(
+            $data = [
                 'no_induk' => $this->input->post('no_induk'),
                 'nisn' => $this->input->post('nisn'),
                 'nama_siswa' => $this->input->post('nama_siswa'),
@@ -143,17 +143,17 @@ class Data_Siswa extends MY_Controller
                 'foto' => base_url('Uploads/' . $upload['file_name'] . ' '),
                 'syscreateuser' => '1', //nanti diisi dengan session user
                 'syscreatedate' => date("Y-m-d H:i:s")
-            );
+            ];
             $this->M_datsis->Simpan($data);
         }
 	}
 	
 	function Baca($id) {
-        $data = array(
+        $data = [
             'title' => 'Detail Data Siswa',
             'value' => $this->M_datsis->Baca($id),
             'addclass' => ''
-        );
+        ];
         $data['content'] = $this->load->view('V_Detail_datsis',$data, True);
 		$data['sidebar'] =$this->load->view('sidebar_os','', TRUE);
 		$this->load->view('template',$data);
@@ -169,8 +169,8 @@ class Data_Siswa extends MY_Controller
         $config['imagedir'] = './assets/qrcode/'; //direktori penyimpanan qr code
         $config['quality'] = true; //boolean, the default is true
         $config['size'] = '1024'; //interger, the default is 1024
-        $config['black'] = array(224, 255, 255); // array, default is array(255,255,255)
-        $config['white'] = array(70, 130, 180); // array, default is array(0,0,0)
+        $config['black'] = [224, 255, 255]; // array, default is array(255,255,255)
+        $config['white'] = [70, 130, 180]; // array, default is array(0,0,0)
         $this->ciqrcode->initialize($config);
         $image_name = 'qr_' . $value[0]->no_induk . '.png'; //buat name dari qr code sesuai dengan nim
 
@@ -179,11 +179,11 @@ class Data_Siswa extends MY_Controller
         $params['size'] = 10;
         $params['savename'] = FCPATH . $config['imagedir'] . $image_name; //simpan image QR CODE ke folder assets/images/
         $this->ciqrcode->generate($params);
-        $dat = array(
+        $dat = [
             'title' => 'Print Data Siswa',
             'value' => $value,
             'addclass' => 'hidden'
-        );
+        ];
         $mpdf = new \Mpdf\Mpdf();
         $data = $this->load->view('Print_datsis', $dat, TRUE);
         $mpdf->WriteHTML($data);
