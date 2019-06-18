@@ -18,8 +18,9 @@ class M_datsis extends CI_Model {
     }
 
     function hapus_data($where, $table) {
+        $this->db->set('status', 5);
         $this->db->where($where);
-        $this->db->delete($table);
+        $this->db->update($table);
     }
 
     function edit_data($id) {

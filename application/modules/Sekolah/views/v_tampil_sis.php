@@ -104,6 +104,8 @@
                                     echo 'Mengulang';
                                 } elseif ($status == 4) {
                                     echo 'Lulus';
+                                } elseif ($status == 5) {
+                                    echo 'Hapus';
                                 }
                                 ?>
                             </td>

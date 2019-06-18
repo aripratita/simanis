@@ -56,7 +56,7 @@ class Data_Siswa extends MY_Controller {
     function hapus($id_siswa) {
         $where = ['id_siswa' => $id_siswa];
         $this->M_datsis->hapus_data($where, 'data_siswa');
-        redirect('Data_Siswa/index');
+        redirect('Sekolah/Data_Siswa/index');
     }
 
     function edit($id) {
