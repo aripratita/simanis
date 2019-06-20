@@ -174,8 +174,8 @@ class Data_Siswa extends MY_Controller {
     }
 
     function dat_sis_total() {
-        $data = ['title' => 'Administrator | Total Data Siswa | SIMANIS'];
-        $data['content'] = $this->load->view('v_datsis_tot', '', true);
+        $data = ['title' => 'Administrator | Total Data Siswa | SIMANIS', 'value' => $this->M_datsis->rekap()];
+        $data['content'] = $this->load->view('v_datsis_tot', $data, true);
         $this->load->view('template', $data);
     }
 

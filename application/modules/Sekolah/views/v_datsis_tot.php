@@ -241,7 +241,178 @@ NPSN
 
             </thead>
             <tbody>
+                <?php foreach ($value as $value) { ?>
+                    <tr>
+                        <td>
 
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <?= $value->kurangdari7 ?>
+                        </td>
+                        <td>
+                            <?= $value->usia7sd12 ?>
+                        </td>
+                        <td>
+                            <?= $value->usiadiatas12 ?>
+                        </td>
+                        <td>
+                            <?= $value->tot ?>
+                        </td>
+                        <td>
+                            <?= $value->islam ?>
+                        </td>
+                        <td>
+                            <?= $value->kristen ?>
+                        </td>
+                        <td>
+                            <?= $value->katolik ?>
+                        </td>
+                        <td>
+                            <?= $value->hindu ?>
+                        </td>
+                        <td>
+                            <?= $value->budha ?>
+                        </td>
+                        <td>
+                            <?= $value->konghucu ?>
+                        </td>
+                        <td>
+                            <?= $value->agamalain ?>
+                        </td>
+                        <td>
+                            <?= $value->tot ?>
+                        </td>
+                        <td>
+                            <?= $value->mengulangkelas1 ?>
+                        </td>
+                        <td>
+                            <?= $value->mengulangkelas2 ?>
+                        </td>
+                        <td>
+                            <?= $value->mengulangkelas3 ?>
+                        </td>
+                        <td>
+                            <?= $value->mengulangkelas4 ?>
+                        </td>
+                        <td>
+                            <?= $value->mengulangkelas5 ?>
+                        </td>
+                        <td>
+                            <?= $value->mengulangkelas6 ?>
+                        </td>
+                        <td>
+                            <?= $value->tot ?>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
