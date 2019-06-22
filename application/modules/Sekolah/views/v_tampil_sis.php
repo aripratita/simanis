@@ -20,7 +20,7 @@
                             nama
                         </th>
                         <th class="text-center text-bold text-uppercase">
-                            jenis kelamin
+                            kelamin
                         </th>
                         <th class="text-center text-bold text-uppercase">
                             T T L
@@ -110,13 +110,9 @@
                                 ?>
                             </td>
                             <td class="text-center">
-                                <div class="form-group">
+                                <div class="btn-group" role="group">
                                     <a href="<?= base_url('Sekolah/Data_Siswa/edit/' . $u->id_siswa . ''); ?>" class="btn btn-xs btn-default" data-toggle="tooltip" title="Ubah Data Siswa"><i class="glyphicon glyphicon-pencil"></i></a>
-                                </div>
-                                <div class="form-group">
                                     <a href="<?= base_url('Sekolah/Data_Siswa/hapus/' . $u->id_siswa . ''); ?>" class="btn btn-xs btn-default" data-toggle="tooltip" title="Hapus Data Siswa"><i class="glyphicon glyphicon-trash"></i></a>    
-                                </div>
-                                <div class="form-group">
                                     <a href="<?= base_url('Sekolah/Data_Siswa/Baca/' . $u->id_siswa . ''); ?>" class="btn btn-xs btn-default" data-toggle="tooltip" title="Rinci Data Siswa"><i class="glyphicon glyphicon-eye-open"></i></a>
                                 </div>
                             </td>

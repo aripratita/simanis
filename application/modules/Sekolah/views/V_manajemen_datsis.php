@@ -16,10 +16,10 @@
                         nama
                     </th>
                     <th class="text-center text-bold text-uppercase">
-                        jenis kelamin
+                        kelamin
                     </th>
                     <th class="text-center text-bold text-uppercase">
-                        T T L
+                        TTL
                     </th>
                     <th class="text-center text-bold text-uppercase">
                         agama
@@ -87,8 +87,10 @@
                             <?= $value->alamat_siswa ?>
                         </td>
                         <td class="text-center">
-                            <a href="<?= base_url('manajemen_datsis/Ubah/' . $value->id_siswa . ''); ?>" class="btn btn-xs btn-default" data-toggle="tooltip" title="Ubah data siswa"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="<?= base_url('manajemen_datsis/Baca/' . $value->id_siswa . ''); ?>" class="btn btn-xs btn-default" data-toggle="tooltip" title="Rinci data siswa"><i class="glyphicon glyphicon-eye-open"></i></a>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <a href="<?= base_url('Sekolah/manajemen_datsis/Ubah/' . $value->id_siswa . ''); ?>" class="btn btn-xs btn-default" data-toggle="tooltip" title="Ubah data siswa"><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="<?= base_url('Sekolah/manajemen_datsis/Baca/' . $value->id_siswa . ''); ?>" class="btn btn-xs btn-default" data-toggle="tooltip" title="Rinci data siswa"><i class="glyphicon glyphicon-eye-open"></i></a>
+                            </div>
                         </td>
                     </tr>
                 <?php } ?>
