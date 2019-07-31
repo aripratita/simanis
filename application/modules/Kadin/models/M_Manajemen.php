@@ -7,15 +7,15 @@
  */
 
 /**
- * Description of M_Datasekolah
+ * Description of M_Manajemen
  *
  * @author casug
  */
-class M_Datasekolah extends CI_Model {
+class M_Manajemen extends CI_Model {
 
     function index() {
-        $exec = $this->db->select('*')
-                ->from('data_sekolah')
+        $exec = $this->db->select()
+                ->from('manajemen_datsis')
                 ->get()
                 ->result();
         return $exec;

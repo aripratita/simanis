@@ -34,10 +34,10 @@
                         <td><?= $u->email_sekolah ?></td>
                         <td><?= $u->nama_kepsek ?></td>
                         <td class="text-center">
-                            <a href="<?= base_url('Sekolah/Data_Sekolah/edit/'); ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="<?= base_url('Sekolah/Data_Sekolah/edit/' . $u->id_sekolah . ''); ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-pencil"></i></a>
                         </td>
                     </tr>
-                <?php } ?>
+<?php } ?>
             </table>
         </div>
     </div>

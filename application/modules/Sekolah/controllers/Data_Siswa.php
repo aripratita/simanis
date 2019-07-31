@@ -68,18 +68,19 @@ class Data_Siswa extends MY_Controller {
         $this->load->view('template', $data);
     }
 
-    function update() {
+    function Update() {
         $config['upload_path'] = './Uploads/foto_siswa/';
         $config['allowed_types'] = 'jpg|jpeg|png|xls|xlsx|doc|docx|pdf';
         $config['max_size'] = '1000';
         $config['file_name'] = date("Y_m_d") . $this->input->post('no_induk');
-        $config['overwrite'] = TRUE;
-        $config['file_ext_tolower'] = TRUE;
-        $config['detect_mime'] = TRUE;
+        $config['overwrite'] = true;
+        $config['file_ext_tolower'] = true;
+        $config['detect_mime'] = true;
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
         if (!$this->upload->do_upload('foto')) {
-            $error = ['error' => $this->upload->display_errors()];
+//            $error = ['error' => $this->upload->display_errors()];
+            $this->upload->display_errors();
         } else {
             $upload = $this->upload->data();
             $data = [
@@ -95,8 +96,12 @@ class Data_Siswa extends MY_Controller {
                 'status' => $this->input->post('status'),
                 'foto' => base_url('Uploads/foto_siswa/' . $upload['file_name'])
             ];
-            $this->M_datsis->update_data($data);
-            redirect('Data_Siswa/index');
+            $exec = $this->M_datsis->update_data($data);
+            if ($exec == true) {
+                echo '<script>alert("data berhasil disimpan");window.location.href="' . base_url('Sekolah/Data_Siswa/index') . '";</script>';
+            } else {
+                echo '<script>alert("data gagal disimpan");window.location.href="' . base_url('Sekolah/Data_Siswa/index') . '";</script>';
+            }
         }
     }
 

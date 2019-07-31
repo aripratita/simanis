@@ -31,19 +31,25 @@ class M_datsis extends CI_Model {
     }
 
     function update_data($data) {
-        $this->db->set('nama_siswa', $data['nama_siswa']);
-        $this->db->set('jenis_kelamin', $data['jenis_kelamin']);
-        $this->db->set('tempat_lahir', $data['tempat_lahir']);
-        $this->db->set('tanggal_lahir', $data['tanggal_lahir']);
-        $this->db->set('agama', $data['agama']);
-        $this->db->set('nama_ibu', $data['nama_ibu']);
-        $this->db->set('alamat_siswa', $data['alamat_siswa']);
-        $this->db->set('status', $data['status']);
-        $this->db->set('foto', $data['foto']);
+        $this->db->trans_begin();
+        $this->db->set(['nama_siswa' => $data['nama_siswa'], 
+            'jenis_kelamin' => $data['jenis_kelamin'], 
+            'tempat_lahir' => $data['tempat_lahir'], 
+            'tanggal_lahir' => $data['tanggal_lahir'], 
+            'agama' => $data['agama'], 
+            'nama_ibu' => $data['nama_ibu'], 
+            'alamat_siswa' => $data['alamat_siswa'], 
+            'status' => $data['status'], 
+            'foto' => $data['foto']]);
         $this->db->where('no_induk', $data['no_induk']);
-        $this->db->update('data_siswa', $data);
-        print_r($this->db->last_query());
-        die;
+        $this->db->update('data_siswa');
+        if ($this->db->trans_status() === false) {
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            $this->db->trans_commit();
+            return true;
+        }
     }
 
     function Baca($id) {
