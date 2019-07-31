@@ -35,17 +35,13 @@
                         <td><?= $u->nama_kepsek ?></td>
                         <td class="text-center">
 <<<<<<< HEAD
-<<<<<<< HEAD
                             <a href="<?= base_url('Sekolah/Data_Sekolah/edit/' . $u->id_sekolah . ''); ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-pencil"></i></a>
 =======
                             <a href="<?= base_url('Sekolah/Data_Sekolah/edit/'); ?><?php echo $u->id_sekolah ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-pencil"></i></a>
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
-=======
-                            <a href="<?= base_url('Sekolah/Data_Sekolah/edit/'); ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-pencil"></i></a>
->>>>>>> parent of 875f5fe... edited by bodo
                         </td>
                     </tr>
-                <?php } ?>
+<?php } ?>
             </table>
         </div>
     </div>

@@ -9,8 +9,7 @@ class Data_Siswa extends MY_Controller {
     }
 
     function index() {
-        $data = ['title' => 'Manajemen Data Siswa | SIMANIS'];
-        $data['value'] = $this->datsis->index();
+        $data = ['title' => 'Manajemen Data Siswa | SIMANIS', 'value' => $this->datsis->index()];
         $data['content'] = $this->load->view('V_Data_Siswa', $data, true);
         $this->load->view('template', $data);
     }

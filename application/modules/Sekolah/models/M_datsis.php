@@ -32,7 +32,6 @@ class M_datsis extends CI_Model {
 
     function update_data($data) {
 <<<<<<< HEAD
-<<<<<<< HEAD
         $this->db->trans_begin();
         $this->db->set(['nama_siswa' => $data['nama_siswa'], 
             'jenis_kelamin' => $data['jenis_kelamin'], 
@@ -58,21 +57,6 @@ class M_datsis extends CI_Model {
         // print_r($this->db->last_query());
         return $this->db->update('data_siswa', $data);
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
-=======
-        $this->db->set('nama_siswa', $data['nama_siswa']);
-        $this->db->set('jenis_kelamin', $data['jenis_kelamin']);
-        $this->db->set('tempat_lahir', $data['tempat_lahir']);
-        $this->db->set('tanggal_lahir', $data['tanggal_lahir']);
-        $this->db->set('agama', $data['agama']);
-        $this->db->set('nama_ibu', $data['nama_ibu']);
-        $this->db->set('alamat_siswa', $data['alamat_siswa']);
-        $this->db->set('status', $data['status']);
-        $this->db->set('foto', $data['foto']);
-        $this->db->where('no_induk', $data['no_induk']);
-        $this->db->update('data_siswa', $data);
-        print_r($this->db->last_query());
-        die;
->>>>>>> parent of 875f5fe... edited by bodo
     }
 
     function Baca($id) {

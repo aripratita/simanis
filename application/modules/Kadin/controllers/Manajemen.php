@@ -1,5 +1,6 @@
 <?php
 
+defined('BASEPATH') OR exit('No direct script access allowed');
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,21 +8,21 @@
  */
 
 /**
- * Description of Datasiswa
+ * Description of Manajemen
  *
  * @author casug
  */
-class Datasiswa extends MY_Controller {
+class Manajemen extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(['M_User' => 'M_User', 'M_Datasiswa' => 'M_Datasiswa']);
+        $this->load->model(['M_User' => 'M_User', 'M_Manajemen' => 'M_Manajemen']);
         $this->result = $this->M_User->Checkuser();
     }
 
     function index() {
-        $data = ['title' => 'Kepala Dinas | SIMANIS', 'value' => $this->M_Datasiswa->index()];
-        $data['content'] = $this->load->view('V_Datasiswa', $data, true);
+        $data = ['title' => 'Kepala Dinas | SIMANIS', 'value' => $this->M_Manajemen->index()];
+        $data['content'] = $this->load->view('V_Manajemen', $data, true);
         $this->load->view('template', $data);
     }
 

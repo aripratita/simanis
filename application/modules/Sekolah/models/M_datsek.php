@@ -6,9 +6,12 @@
 class M_datsek extends CI_Model {
 
     function tampil_data() {
-        return $this->db->select('*')
-                        ->from('data_sekolah')
-                        ->get();
+        $exec = $this->db->select()
+                ->from('data_sekolah')
+                ->where('id_operator', $this->session->userdata('id'), false)
+                ->get()
+                ->result();
+        return $exec;
     }
 
     function input_data($data, $table) {

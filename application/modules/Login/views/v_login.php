@@ -45,6 +45,7 @@
                             <p class="text-info" style="cursor:default;">     
                                 © <?= date("Y") ?> SIMANIS
                             </p>
+                            <i>sistem informasi manajemen siswa</i>
                         </div>
                     </div>
                 </div>

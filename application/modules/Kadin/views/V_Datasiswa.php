@@ -130,7 +130,7 @@
                 <th class="text-center text-uppercase" colspan="3">
                     Jenis Kelamin
                 </th>
-                
+
                 <th class="text-center text-uppercase" colspan="7">
                     Berdasarkan Tingkat
                 </th>
@@ -241,8 +241,187 @@
             </tr>
             </thead>
             <tbody>
-                <tr>
-                </tr>
+                <?php foreach ($value as $value) { ?>
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+                            <?= $value->nama_sekolah ?>
+                        </td>
+                        <td>
+                            <?= $value->npsn ?>
+                        </td>
+                        <td>
+                            <?= $value->kelas1 ?>
+                        </td>
+                        <td>
+                            <?= $value->kelas2 ?>
+                        </td>
+                        <td>
+                            <?= $value->kelas3 ?>
+                        </td>
+                        <td>
+                            <?= $value->kelas4 ?>
+                        </td>
+                        <td>
+                            <?= $value->kelas5 ?>
+                        </td>
+                        <td>
+                            <?= $value->kelas6 ?>
+                        </td>
+                        <td>
+                            <?= $value->tot ?>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>

@@ -71,26 +71,21 @@ class Data_Siswa extends MY_Controller {
     }
 <<<<<<< HEAD
 
-<<<<<<< HEAD
     function Update() {
 =======
     private function upload_image(){
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
-=======
-    function update() {
->>>>>>> parent of 875f5fe... edited by bodo
         $config['upload_path'] = './Uploads/foto_siswa/';
         $config['allowed_types'] = 'jpg|jpeg|png|xls|xlsx|doc|docx|pdf';
         $config['max_size'] = '1000';
         $config['file_name'] = date("Y_m_d") . $this->input->post('no_induk');
-        $config['overwrite'] = TRUE;
-        $config['file_ext_tolower'] = TRUE;
-        $config['detect_mime'] = TRUE;
+        $config['overwrite'] = true;
+        $config['file_ext_tolower'] = true;
+        $config['detect_mime'] = true;
         $this->load->library('upload', $config);
 <<<<<<< HEAD
         $this->upload->initialize($config);
         if (!$this->upload->do_upload('foto')) {
-<<<<<<< HEAD
 //            $error = ['error' => $this->upload->display_errors()];
             $this->upload->display_errors();
 =======
@@ -100,9 +95,6 @@ class Data_Siswa extends MY_Controller {
             return  base_url('Uploads/foto_siswa/').$this->upload->data("file_name");
 
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
-=======
-            $error = ['error' => $this->upload->display_errors()];
->>>>>>> parent of 875f5fe... edited by bodo
         } else {
             $error = ['error' => $this->upload->display_errors()];
             return 'default.jpg';
@@ -131,17 +123,12 @@ class Data_Siswa extends MY_Controller {
                 'foto' => $foto
             ];
 <<<<<<< HEAD
-<<<<<<< HEAD
             $exec = $this->M_datsis->update_data($data);
             if ($exec == true) {
                 echo '<script>alert("data berhasil disimpan");window.location.href="' . base_url('Sekolah/Data_Siswa/index') . '";</script>';
             } else {
                 echo '<script>alert("data gagal disimpan");window.location.href="' . base_url('Sekolah/Data_Siswa/index') . '";</script>';
             }
-=======
-            $this->M_datsis->update_data($data);
-            redirect('Data_Siswa/index');
->>>>>>> parent of 875f5fe... edited by bodo
         }
 =======
             // var_dump($data);
