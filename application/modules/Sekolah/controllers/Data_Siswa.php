@@ -69,11 +69,16 @@ class Data_Siswa extends MY_Controller {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     function Update() {
 =======
     private function upload_image(){
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
+=======
+
+    function update() {
+>>>>>>> parent of c8c9fce... simanis
 =======
 
     function update() {
@@ -88,6 +93,7 @@ class Data_Siswa extends MY_Controller {
         $this->load->library('upload', $config);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->upload->initialize($config);
         if (!$this->upload->do_upload('foto')) {
 //            $error = ['error' => $this->upload->display_errors()];
@@ -100,6 +106,10 @@ class Data_Siswa extends MY_Controller {
 
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
         } else {
+=======
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload('foto')) {
+>>>>>>> parent of c8c9fce... simanis
 =======
         $this->upload->initialize($config);
         if (!$this->upload->do_upload('foto')) {
@@ -122,6 +132,7 @@ class Data_Siswa extends MY_Controller {
             ];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             $exec = $this->M_datsis->update_data($data);
             if ($exec == true) {
                 echo '<script>alert("data berhasil disimpan");window.location.href="' . base_url('Sekolah/Data_Siswa/index') . '";</script>';
@@ -135,6 +146,11 @@ class Data_Siswa extends MY_Controller {
             redirect('sekolah/Data_Siswa/index');
         
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
+=======
+            $this->M_datsis->update_data($data);
+            redirect('Data_Siswa/index');
+        }
+>>>>>>> parent of c8c9fce... simanis
 =======
             $this->M_datsis->update_data($data);
             redirect('Data_Siswa/index');
