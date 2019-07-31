@@ -3,7 +3,7 @@ foreach ($data_siswa as $u) {
     
 }
 ?>
-<form method="POST" action="<?php echo base_url('Data_Siswa/update')?>" method="POST" enctype="multipart/form-data">
+<form method="POST" action="<?php echo base_url('Sekolah/Data_Siswa/update')?>" method="POST" enctype="multipart/form-data">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4">
@@ -172,6 +172,7 @@ foreach ($data_siswa as $u) {
 					<label class="text-uppercase">Foto</label>
 					<img src="<?= $u->foto?>" class="img-thumbnail" style="width: 180px; height: 200px";>
 					<input type="file" name="foto" class="btn btn-block btn-default">
+					<input type="hidden" name="old_foto" value="<?= $u->foto ?>">
 				</div>
 				<div class="btn-group btn-group-sm" role="group" style="clear:both;margin:20px 0px;">
 					<a href="<?= base_url('Data_Siswa/index');?>" class="btn btn-danger text-uppercase">Batal</a>

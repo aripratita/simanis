@@ -1,13 +1,9 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of c8c9fce... simanis
 <div class="box">
     <div class="box-header">
         <h3 class="box-title"><b></b></h3>
     </div>
     <div class="body" style="overflow:auto">
-<<<<<<< HEAD
         <?php
         echo 'Siswa';
         ?>
@@ -40,8 +36,6 @@
             </div>
         </div>
 
-=======
->>>>>>> parent of c8c9fce... simanis
         <table class="table table-hover table-bordered" id="example" width="100%">
             <thead>
                 <tr>
@@ -274,11 +268,6 @@ NPSN
                 </th>
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> parent of c8c9fce... simanis
             </tr>
 
             </thead>
@@ -462,7 +451,6 @@ NPSN
 
 <!-- =============================================================================================== -->
 <script>
-<<<<<<< HEAD
 =======
 <?php foreach ($value as $value) { ?>
 <table class="table table-bordered text-center" >
@@ -696,7 +684,5 @@ NPSN
 
   <script>
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
-=======
->>>>>>> parent of c8c9fce... simanis
     $('#example').DataTable({});
 </script>

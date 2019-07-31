@@ -60,24 +60,21 @@ class Data_Siswa extends MY_Controller {
     }
 
     function edit($id) {
-        $data = [
-            'title' => 'Ubah Data Siswa',
-            'data_siswa' => $this->M_datsis->edit_data($id)
-        ];
-        $data['content'] = $this->load->view('v_edit', $data, true);
+        // var_dump($id);
+        $where = ['id_siswa' => $id];
+        // var_dump($where);
+        $data = ['title' => 'Administrator Sekolah | Edit Data Siswa', 
+        'data_siswa'=> $this->M_datsis->edit_data($where)
+    ];
+        $data['content'] = $this->load->view('v_edit_datsis', $data, true);
         $this->load->view('template', $data);
     }
-<<<<<<< HEAD
 <<<<<<< HEAD
 
     function Update() {
 =======
     private function upload_image(){
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
-=======
-
-    function update() {
->>>>>>> parent of c8c9fce... simanis
         $config['upload_path'] = './Uploads/foto_siswa/';
         $config['allowed_types'] = 'jpg|jpeg|png|xls|xlsx|doc|docx|pdf';
         $config['max_size'] = '1000';
@@ -86,7 +83,6 @@ class Data_Siswa extends MY_Controller {
         $config['file_ext_tolower'] = true;
         $config['detect_mime'] = true;
         $this->load->library('upload', $config);
-<<<<<<< HEAD
 <<<<<<< HEAD
         $this->upload->initialize($config);
         if (!$this->upload->do_upload('foto')) {
@@ -100,13 +96,19 @@ class Data_Siswa extends MY_Controller {
 
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
         } else {
-=======
-        $this->upload->initialize($config);
-        if (!$this->upload->do_upload('foto')) {
->>>>>>> parent of c8c9fce... simanis
             $error = ['error' => $this->upload->display_errors()];
-        } else {
-            $upload = $this->upload->data();
+            return 'default.jpg';
+        }
+    }
+    function update() {
+        // var_dump($_FILES["foto"]["name"]);
+            if(!empty($_FILES["foto"]["name"])){
+                $foto = $this->upload_image();
+            } else {
+                $foto = $this->input->post('old_foto');
+                // var_dump($foto);
+            }
+            // var_dump($foto);
             $data = [
                 'no_induk' => $this->input->post('no_induk'),
                 'nisn' => $this->input->post('nisn'),
@@ -118,9 +120,8 @@ class Data_Siswa extends MY_Controller {
                 'nama_ibu' => $this->input->post('nama_ibu'),
                 'alamat_siswa' => $this->input->post('alamat_siswa'),
                 'status' => $this->input->post('status'),
-                'foto' => base_url('Uploads/foto_siswa/' . $upload['file_name'])
+                'foto' => $foto
             ];
-<<<<<<< HEAD
 <<<<<<< HEAD
             $exec = $this->M_datsis->update_data($data);
             if ($exec == true) {
@@ -135,11 +136,6 @@ class Data_Siswa extends MY_Controller {
             redirect('sekolah/Data_Siswa/index');
         
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
-=======
-            $this->M_datsis->update_data($data);
-            redirect('Data_Siswa/index');
-        }
->>>>>>> parent of c8c9fce... simanis
     }
 
     function Simpan() {
@@ -221,4 +217,5 @@ class Data_Siswa extends MY_Controller {
         $this->load->view('template', $data);
     }
 
+    
 }

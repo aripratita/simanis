@@ -26,12 +26,11 @@ class M_datsis extends CI_Model {
     function edit_data($id) {
         $this->db->select('id_siswa,no_induk,nisn,nama_siswa,jenis_kelamin,tempat_lahir,tanggal_lahir,agama,nama_ibu,alamat_siswa,status,foto')
                 ->from('data_siswa')
-                ->where('id_siswa', $id);
+                ->where($id);
         return $this->db->get()->result();
     }
 
     function update_data($data) {
-<<<<<<< HEAD
 <<<<<<< HEAD
         $this->db->trans_begin();
         $this->db->set(['nama_siswa' => $data['nama_siswa'], 
@@ -58,21 +57,6 @@ class M_datsis extends CI_Model {
         // print_r($this->db->last_query());
         return $this->db->update('data_siswa', $data);
 >>>>>>> c8c9fcef5234ae92a8a57456df79f484158c5c63
-=======
-        $this->db->set('nama_siswa', $data['nama_siswa']);
-        $this->db->set('jenis_kelamin', $data['jenis_kelamin']);
-        $this->db->set('tempat_lahir', $data['tempat_lahir']);
-        $this->db->set('tanggal_lahir', $data['tanggal_lahir']);
-        $this->db->set('agama', $data['agama']);
-        $this->db->set('nama_ibu', $data['nama_ibu']);
-        $this->db->set('alamat_siswa', $data['alamat_siswa']);
-        $this->db->set('status', $data['status']);
-        $this->db->set('foto', $data['foto']);
-        $this->db->where('no_induk', $data['no_induk']);
-        $this->db->update('data_siswa', $data);
-        print_r($this->db->last_query());
-        die;
->>>>>>> parent of c8c9fce... simanis
     }
 
     function Baca($id) {
@@ -98,7 +82,7 @@ class M_datsis extends CI_Model {
     }
 
     function rekap() {
-        $exec = $this->db->query('SELECT COUNT(*) AS tot,(SELECT COUNT(*) FROM data_siswa WHERE YEAR (CURDATE()) - YEAR ( tanggal_lahir) BETWEEN 0 AND 6) AS kurangdari7, (SELECT COUNT(*) FROM data_siswa WHERE YEAR (CURDATE()) - YEAR ( tanggal_lahir ) BETWEEN 7 AND 12) AS usia7sd12, (SELECT COUNT(*) FROM data_siswa WHERE YEAR (CURDATE()) - YEAR ( tanggal_lahir ) BETWEEN 12 AND 222) AS usiadiatas12, (SELECT COUNT(*) FROM data_siswa WHERE agama=1) AS islam, (SELECT COUNT(*) FROM data_siswa WHERE agama=3) AS kristen, (SELECT COUNT(*) FROM data_siswa WHERE agama=2) AS katolik, (SELECT COUNT(*) FROM data_siswa WHERE agama=4) AS hindu, (SELECT COUNT(*) FROM data_siswa WHERE agama=5) AS budha, (SELECT COUNT(*) FROM data_siswa WHERE agama=6) AS konghucu, (SELECT COUNT(*) FROM data_siswa WHERE agama=7) AS agamalain, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND id_rombel=1 OR `status`=3 AND id_rombel=2) AS mengulangkelas1, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND id_rombel=3 OR `status`=3 AND id_rombel=4) AS mengulangkelas2, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND id_rombel=5 OR `status`=3 AND id_rombel=6) AS mengulangkelas3, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND id_rombel=7 OR `status`=3 AND id_rombel=8) AS mengulangkelas4, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND id_rombel=9 OR `status`=3 AND id_rombel=10) AS mengulangkelas5, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND id_rombel=11 OR `status`=3 AND id_rombel=12) AS mengulangkelas6 FROM data_siswa LIMIT 1;')->result();
+        $exec = $this->db->query('SELECT COUNT(*) AS tot,(SELECT COUNT(*) FROM data_siswa WHERE YEAR (CURDATE()) - YEAR ( tanggal_lahir) BETWEEN 0 AND 6) AS kurangdari7, (SELECT COUNT(*) FROM data_siswa WHERE YEAR (CURDATE()) - YEAR ( tanggal_lahir ) BETWEEN 7 AND 12) AS usia7sd12, (SELECT COUNT(*) FROM data_siswa WHERE YEAR (CURDATE()) - YEAR ( tanggal_lahir ) BETWEEN 12 AND 222) AS usiadiatas12, (SELECT COUNT(*) FROM data_siswa WHERE agama=1) AS islam, (SELECT COUNT(*) FROM data_siswa WHERE agama=3) AS kristen, (SELECT COUNT(*) FROM data_siswa WHERE agama=2) AS katolik, (SELECT COUNT(*) FROM data_siswa WHERE agama=4) AS hindu, (SELECT COUNT(*) FROM data_siswa WHERE agama=5) AS budha, (SELECT COUNT(*) FROM data_siswa WHERE agama=6) AS konghucu, (SELECT COUNT(*) FROM data_siswa WHERE agama=7) AS agamalain, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND nama_rombel=1 OR `status`=3 AND nama_rombel=2) AS mengulangkelas1, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND nama_rombel=3 OR `status`=3 AND nama_rombel=4) AS mengulangkelas2, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND nama_rombel=5 OR `status`=3 AND nama_rombel=6) AS mengulangkelas3, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND nama_rombel=7 OR `status`=3 AND nama_rombel=8) AS mengulangkelas4, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND nama_rombel=9 OR `status`=3 AND nama_rombel=10) AS mengulangkelas5, (SELECT COUNT(*) FROM data_siswa WHERE `status`=3 AND nama_rombel=11 OR `status`=3 AND nama_rombel=12) AS mengulangkelas6 FROM data_siswa LIMIT 1;')->result();
         return $exec;
     }
 

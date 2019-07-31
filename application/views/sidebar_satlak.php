@@ -1,9 +1,8 @@
 <li>
-    <a href=<?= base_url('Satlak/Dashboard/index') ?>>
+    <a href=<?= base_url('Sekolah/Dashboard/index') ?>>
         <i class="fa fa-home"></i>
         <span>Home</span>
     </a>
-<<<<<<< HEAD
 </li>
 <li>
 <<<<<<< HEAD
@@ -24,6 +23,4 @@
         <i class="fa fa-home"></i>
         <span>Rekap Data Siswa</span>
     </a>
-=======
->>>>>>> parent of c8c9fce... simanis
 </li>
