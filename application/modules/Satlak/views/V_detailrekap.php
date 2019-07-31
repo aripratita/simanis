@@ -227,7 +227,18 @@
   </table>
   <?php } ?>
 
-
+<div class="btn-group btn-group-sm <?php
+    if ($addclass != "") {
+        echo $addclass;
+    } else {
+        echo '';
+    }
+    ?>" role="group" style="clear:both;margin:20px 0px;">
+		<a href="<?= base_url('Sekolah/Data_Siswa/index'); ?>" class="btn btn-danger text-uppercase">kembali</a>
+		<a href="<?= base_url('Sekolah/Data_Siswa/Cetak/' . $value->id_siswa . ' '); ?>" target="_new"
+			class="btn btn-success text-uppercase">print</a>
+	</div>
+  
   <script>
     $('#example').DataTable({});
 </script>

@@ -20,8 +20,24 @@ class Datasiswa extends MY_Controller {
     }
 
     function index() {
-        $data = ['title' => 'Kepala Dinas | SIMANIS'];
+        $data = ['title' => 'SATLAK Cakung | SIMANIS','value'=>$this->M_Datasiswa->Read()];
         $data['content'] = $this->load->view('V_Datasiswa', $data, true);
+        $this->load->view('template', $data);
+    }
+
+    function detail_rekap(){
+            $data = ['title' => 'Administrator | Rekap Data Siswa | SIMANIS', 'value' => $this->M_Datasiswa->dtl_rekap()];
+            $data['content'] = $this->load->view('  V_detailrekap', $data, true);
+            $this->load->view('template', $data);
+    
+    }
+    function Baca($id) {
+        $data = [
+            'title' => 'Detail Data Siswa',
+            'value' => $this->M_Datasiswa->Baca($id),
+            'addclass' => ''
+        ];
+        $data['content'] = $this->load->view('V_detailrekap', $data, true);
         $this->load->view('template', $data);
     }
 
