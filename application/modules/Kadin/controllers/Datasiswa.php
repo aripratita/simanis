@@ -20,7 +20,7 @@ class Datasiswa extends MY_Controller {
     }
 
     function index() {
-        $data = ['title' => 'Kepala Dinas | SIMANIS', 'value' => $this->M_Datasiswa->index()];
+        $data = ['title' => 'Kepala Dinas | SIMANIS'];
         $data['content'] = $this->load->view('V_Datasiswa', $data, true);
         $this->load->view('template', $data);
     }

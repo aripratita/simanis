@@ -3,6 +3,7 @@
         <i class="fa fa-home"></i>
         <span>Home</span>
     </a>
+<<<<<<< HEAD
 </li>
 <li>
 <<<<<<< HEAD
@@ -23,4 +24,6 @@
         <i class="fa fa-home"></i>
         <span>Rekap Data Siswa</span>
     </a>
+=======
+>>>>>>> parent of 875f5fe... edited by bodo
 </li>
