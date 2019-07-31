@@ -142,7 +142,7 @@ foreach ($value as $value) {
         echo '';
     }
     ?>" role="group" style="clear:both;margin:20px 0px;">
-        <a href="<?= base_url('Sekolah/Data_Siswa/index'); ?>" class="btn btn-danger text-uppercase">kembali</a>
-        <a href="<?= base_url('Sekolah/Data_Siswa/Cetak/' . $value->id_siswa . ' '); ?>" target="_new" class="btn btn-success text-uppercase">print</a>
+        <a href="<?= base_url('Data_Siswa/index'); ?>" class="btn btn-danger text-uppercase">kembali</a>
+        <a href="<?= base_url('Data_Siswa/Cetak/' . $value->id_siswa . ' '); ?>" target="_new" class="btn btn-success text-uppercase">print</a>
     </div>
 </div>

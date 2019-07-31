@@ -124,7 +124,7 @@ and open the template in the editor.
                             <label>rombel</label>
                         </td>
                         <td class="text-uppercase">: 
-                            <?= $value->nama_rombel ?>
+                            <?= $value->id_rombel ?>
                         </td>
                         <td class="text-uppercase">
                             <label>Telepon</label>
