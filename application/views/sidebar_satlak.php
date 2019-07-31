@@ -4,7 +4,6 @@
         <span>Home</span>
     </a>
 <<<<<<< HEAD
-<<<<<<< HEAD
 </li>
 <li>
 <<<<<<< HEAD
@@ -25,8 +24,6 @@
         <i class="fa fa-home"></i>
         <span>Rekap Data Siswa</span>
     </a>
-=======
->>>>>>> parent of c8c9fce... simanis
 =======
 >>>>>>> parent of c8c9fce... simanis
 </li>
